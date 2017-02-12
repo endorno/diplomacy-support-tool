@@ -23,7 +23,12 @@ const moveUnits = (units, fromNodeKey, toNodeKey) => {
 };
 
 const nation = (state = Nation.England, action) => {
-    return state
+    switch (action.type) {
+        case 'SELECT_MY_NATION':
+            return action.nation;
+        default:
+            return state;
+    }
 }
 
 
@@ -44,6 +49,10 @@ const controller = (state = {}, action) => {
             console.log('select node:' + action.nodeKey);
             return Object.assign({}, state, {
                 selectedNodeKey: action.nodeKey
+            });
+        case 'SELECT_MY_NATION':
+            return Object.assign({}, state, {
+                selectedNodeKey: null
             });
         default:
             return state;

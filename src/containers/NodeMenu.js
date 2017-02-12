@@ -10,7 +10,6 @@ import {Map} from '../config'
 
 class NodeMenu extends React.Component {
     render() {
-        console.log('rerender');
         let buttons = [];
         if (this.props.hasMyUnit) {
             buttons.push(

@@ -27,3 +27,12 @@ export const clickMoveUnit = () => {
         type: 'CLICK_MOVE_UNIT',
     }
 };
+
+
+// nation
+export const selectMyNation = (nation) => {
+    return {
+        type: 'SELECT_MY_NATION',
+        nation: nation
+    }
+};
