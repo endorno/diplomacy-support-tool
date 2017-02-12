@@ -21,9 +21,9 @@ export const initialState = {
 
 export const getNodeUnit = (units, nodeKey) => {
     let filtered = units.filter((unit) => {
-       return unit.nodeKey == nodeKey;
+       return unit.nodeKey === nodeKey;
     });
-    if (filtered.length == 0) {
+    if (filtered.length === 0) {
         return null;
     } else {
         // if length > 1 ?

@@ -11,7 +11,12 @@ class NationMenu extends React.Component {
     render() {
         let buttons = [];
 
-        for (let nation in Nation) {
+        for (let nationKey in Nation) {
+            if (!Nation.hasOwnProperty(nationKey)) {
+                continue;
+            }
+            let nation = Nation[nationKey];
+
             if (nation !== this.props.nation) {
                 buttons.push(
                     <a href="#"
@@ -19,11 +24,11 @@ class NationMenu extends React.Component {
                            e.preventDefault();
                            this.props.onNationClick(nation)
                        }}
-                    >{nation}</a>
+                    >{nation.name}</a>
                 );
             } else {
                 buttons.push(
-                    <span>{nation}</span>
+                    <span>{nation.name}</span>
                 );
             }
         }

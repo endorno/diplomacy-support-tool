@@ -70,7 +70,10 @@ export default class Field extends React.Component {
 
         let unit_elements = this.props.units.map((unit, i) => {
             let n = Map.nodes[unit.nodeKey];
-            return <Rect key={i + n.name + '-force'} x={n.pos.x} y={n.pos.y} width={10} height={10} fill={'green'}/>
+            return <Rect
+                key={i + n.name + '-force'} x={n.pos.x} y={n.pos.y}
+                width={10} height={10} fill={unit.nation.color}
+            />
         });
 
         // var source_elements = Object.keys(geo.nodes).filter((key) => {

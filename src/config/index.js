@@ -2,9 +2,16 @@
  * Created by teppei.fujisawa on 2017/02/12.
  */
 
+class NationDefinition {
+    constructor(name, color) {
+        this.name = name;
+        this.color = color;
+    }
+}
+
 const Nation = {
-    England: 'England',
-    France: 'France'
+    England: new NationDefinition('England', '#6371BC'),
+    France: new NationDefinition('France', '#4197A3')
 };
 
 const GeoType = {
