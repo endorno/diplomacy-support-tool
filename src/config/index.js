@@ -20,7 +20,7 @@ class GeoNode {
         this.name = name;
         this.pos = {x: pos.x + diffX, y: pos.y + diffY};
         this.type = type;
-        this.is_supply = is_supply;
+        this.isSupply = is_supply;
     }
 }
 

@@ -10,7 +10,10 @@ import {selectNode} from '../actions'
 class Game extends React.Component {
     render() {
         return (
-            <Field units={this.props.units} nodeClick={this.props.nodeClick}>
+            <Field
+                selectedNodeKey={this.props.selectedNodeKey}
+                units={this.props.units}
+                nodeClick={this.props.nodeClick}>
 
             </Field>
         );
@@ -19,7 +22,8 @@ class Game extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        units: state.game.units
+        units: state.game.units,
+        selectedNodeKey: state.controller.selectedNodeKey,
     };
 };
 

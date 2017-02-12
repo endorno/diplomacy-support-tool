@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {createStore} from 'redux'
-
+import {initialState} from './state'
 import {Layer, Stage} from 'react-konva'
 import {Nation} from './config'
 import appReducer from './reducers'
@@ -25,18 +25,9 @@ class App extends React.Component {
     }
 }
 
-const gameInitialState = {
-    game: {
-        units: [
-            {type: 'Army', nation: Nation.England, nodeKey: 'Lon'},
-            {type: 'Navy', nation: Nation.England, nodeKey: 'Wal'},
-            {type: 'Army', nation: Nation.France, nodeKey: 'Bre'},
-        ]
-    },
-    controller: {}
-};
 
-const store = createStore(appReducer, gameInitialState);
+
+const store = createStore(appReducer, initialState);
 
 
 ReactDOM.render(

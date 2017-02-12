@@ -3,8 +3,9 @@
  */
 
 import {combineReducers} from 'redux'
+
 // import {addUnit} from '../actions'
-// import {Nation, Map} from '../config'
+ import {Nation} from '../config'
 
 
 
@@ -20,6 +21,10 @@ const moveUnits = (units, fromNodeKey, toNodeKey) => {
         }
     });
 };
+
+const nation = (state = Nation.England, action) => {
+    return state
+}
 
 
 const game = (state = {}, action) => {
@@ -46,6 +51,7 @@ const controller = (state = {}, action) => {
 };
 
 const appReducer = combineReducers({
+    nation,
     game,
     controller
 });

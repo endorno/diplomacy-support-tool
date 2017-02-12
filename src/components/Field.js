@@ -10,7 +10,7 @@ class Node extends React.Component {
     render() {
         let node = this.props.node;
         var supply = null;
-        if (node.is_supply) {
+        if (node.isSupply) {
             supply = <Star key={node.name + '-source'}
                            x={node.pos.x + 10}
                            y={node.pos.y - 10}
@@ -26,7 +26,7 @@ class Node extends React.Component {
                         x={node.pos.x}
                         y={node.pos.y}
                         width={30} height={30}
-                        stroke={'black'} fill={'white'}
+                        stroke={'black'} fill={this.props.isSelected ? 'gray' : 'white'}
                         onClick={this.props.onClick}
                 />
                 {supply}
@@ -51,7 +51,12 @@ export default class Field extends React.Component {
     render() {
         let nodes = Object.keys(Map.nodes).map((key) => {
             let node = Map.nodes[key];
-            return <Node key={node.name} node={node} onClick={() => {this.props.nodeClick(key)}}/>
+            let isSelected = key === this.props.selectedNodeKey;
+            return <Node key={node.name} node={node}
+                         isSelected={isSelected}
+                         onClick={() => {
+                             this.props.nodeClick(key)
+                         }}/>
         });
 
         let edges = Object.keys(Map.edges).map((key) => {
