@@ -36,6 +36,7 @@ const game = (state = {}, action) => {
 const controller = (state = {}, action) => {
     switch (action.type) {
         case 'SELECT_NODE':
+            console.log('select node:' + action.nodeKey);
             return Object.assign({}, state, {
                 selectedNodeKey: action.nodeKey
             });

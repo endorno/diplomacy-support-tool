@@ -27,7 +27,7 @@ class Node extends React.Component {
                         y={node.pos.y}
                         width={30} height={30}
                         stroke={'black'} fill={'white'}
-                        onClick={this.props.nodeClick}
+                        onClick={this.props.onClick}
                 />
                 {supply}
             </Group>
@@ -51,7 +51,7 @@ export default class Field extends React.Component {
     render() {
         let nodes = Object.keys(Map.nodes).map((key) => {
             let node = Map.nodes[key];
-            return <Node key={node.name} node={node} nodeClick={this.handleClick}/>
+            return <Node key={node.name} node={node} onClick={() => {this.props.nodeClick(key)}}/>
         });
 
         let edges = Object.keys(Map.edges).map((key) => {

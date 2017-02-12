@@ -5,11 +5,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Field from '../components/Field'
+import {selectNode} from '../actions'
 
 class Game extends React.Component {
     render() {
         return (
-            <Field units={this.props.units}>
+            <Field units={this.props.units} nodeClick={this.props.nodeClick}>
 
             </Field>
         );
@@ -22,9 +23,11 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
     return {
-
+        nodeClick: (nodeKey) => {
+            dispatch(selectNode(nodeKey));
+        }
     };
 };
 
