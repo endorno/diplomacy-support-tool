@@ -246,6 +246,9 @@ const gameInitialState = {
             {type: 'Navy', nation: Nation.England, nodeKey: 'Wal'},
             {type: 'Army', nation: Nation.France, nodeKey: 'Bre'},
         ]
+    },
+    controller: {
+
     }
 };
 

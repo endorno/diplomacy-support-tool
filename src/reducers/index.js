@@ -3,8 +3,8 @@
  */
 
 import {combineReducers} from 'redux'
-import {addUnit} from '../actions'
-import {Nation, Map} from '../config'
+// import {addUnit} from '../actions'
+// import {Nation, Map} from '../config'
 
 
 
@@ -33,7 +33,7 @@ const game = (state = {}, action) => {
     }
 };
 
-const controller = (state, action) => {
+const controller = (state = {}, action) => {
     switch (action.type) {
         case 'SELECT_NODE':
             return Object.assign({}, state, {
@@ -45,7 +45,8 @@ const controller = (state, action) => {
 };
 
 const appReducer = combineReducers({
-    game
+    game,
+    controller
 });
 
 export default appReducer;

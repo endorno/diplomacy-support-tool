@@ -4,8 +4,37 @@
 import {Map} from '../config'
 import React from 'react'
 import Konva from 'konva';
-import {Layer, Rect, Stage, Group, Circle, Line, Star} from 'react-konva';
+import {Rect, Group, Circle, Line, Star} from 'react-konva';
 
+class Node extends React.Component {
+    render() {
+        let node = this.props.node;
+        var supply = null;
+        if (node.is_supply) {
+            supply = <Star key={node.name + '-source'}
+                           x={node.pos.x + 10}
+                           y={node.pos.y - 10}
+                           numPoints={5}
+                           innerRadius={5}
+                           outerRadius={10}
+                           stroke={'black'} fill={'yellow'}
+            />
+        }
+        return (
+            <Group key={node.name + '-group'}>
+                <Circle key={node.name}
+                        x={node.pos.x}
+                        y={node.pos.y}
+                        width={30} height={30}
+                        stroke={'black'} fill={'white'}
+                        onClick={this.props.nodeClick}
+                />
+                {supply}
+            </Group>
+        )
+            ;
+    }
+}
 
 export default class Field extends React.Component {
     constructor(...args) {
@@ -22,8 +51,7 @@ export default class Field extends React.Component {
     render() {
         let nodes = Object.keys(Map.nodes).map((key) => {
             let node = Map.nodes[key];
-            return <Circle key={node.name} x={node.pos.x} y={node.pos.y} width={30} height={30} stroke={'black'}
-                           fill={'white'} onClick={this.handleClick}/>
+            return <Node key={node.name} node={node} nodeClick={this.handleClick}/>
         });
 
         let edges = Object.keys(Map.edges).map((key) => {
@@ -39,7 +67,6 @@ export default class Field extends React.Component {
             let n = Map.nodes[unit.nodeKey];
             return <Rect key={i + n.name + '-force'} x={n.pos.x} y={n.pos.y} width={10} height={10} fill={'green'}/>
         });
-        console.log(unit_elements);
 
         // var source_elements = Object.keys(geo.nodes).filter((key) => {
         //     return geo.nodes[key].is_source
