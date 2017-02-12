@@ -12,11 +12,13 @@ const GeoType = {
     Land: 'Land',
     Port: 'Port'
 };
+let diffX = -100
+let diffY = -400
 
 class GeoNode {
     constructor(name, pos, type, is_supply) {
         this.name = name;
-        this.pos = pos;
+        this.pos = {x: pos.x + diffX, y: pos.y + diffY};
         this.type = type;
         this.is_supply = is_supply;
     }
@@ -28,6 +30,7 @@ class GeoEdge {
         this.node2 = node2;
     }
 }
+
 
 const Map = {
     nodes: {
