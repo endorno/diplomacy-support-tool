@@ -5,7 +5,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Field from '../components/Field'
-import {selectNode} from '../actions'
+import {selectNode, moveUnit} from '../actions'
+import {ControllerMode} from '../state'
 
 class Game extends React.Component {
     render() {
@@ -21,20 +22,38 @@ class Game extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('change mode?:', state.constructor.mode)
     return {
         units: state.game.units,
         selectedNodeKey: state.controller.selectedNodeKey,
+        mode: state.controller.mode
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        nodeClick: (nodeKey) => {
-            dispatch(selectNode(nodeKey));
+        _selectNode(nodeKey) {
+            dispatch(selectNode(nodeKey))
+        },
+        _moveUnit(fromNodeKey, toNodeKey) {
+            dispatch(moveUnit(fromNodeKey, toNodeKey))
         }
     };
 };
 
+const mergeProps = (stateProps, dispatchProps) => {
+    return Object.assign({}, stateProps, dispatchProps,{
+        nodeClick: (nodeKey) => {
+            if (stateProps.mode === ControllerMode.MoveUnit) {
+                console.log('move', stateProps.selectedNodeKey, nodeKey);
+                dispatchProps._moveUnit(stateProps.selectedNodeKey, nodeKey);
+            } else {
+                console.log('select', nodeKey);
+                dispatchProps._selectNode(nodeKey);
+            }
+        }
+    })
+}
 
-Game = connect(mapStateToProps, mapDispatchToProps)(Game)
+Game = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Game)
 export default Game;

@@ -2,7 +2,7 @@
  * Created by teppei.fujisawa on 2017/02/13.
  */
 
-import {clickMoveUnit} from '../actions'
+import {toMoveUnitMode} from '../actions'
 import {connect} from 'react-redux'
 import React from 'react'
 import {getNodeUnit} from '../state'
@@ -105,7 +105,7 @@ const mapStateToProos = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onMoveUnitButtonClick: () => {
-            dispatch(clickMoveUnit())
+            dispatch(toMoveUnitMode())
         }
     }
 }

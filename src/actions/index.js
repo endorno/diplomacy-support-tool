@@ -22,9 +22,9 @@ export const selectNode = (nodeKey) => {
     }
 };
 
-export const clickMoveUnit = () => {
+export const toMoveUnitMode = () => {
     return {
-        type: 'CLICK_MOVE_UNIT',
+        type: 'TO_MOVE_UNIT_MODE',
     }
 };
 

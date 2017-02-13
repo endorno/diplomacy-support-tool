@@ -3,7 +3,7 @@
  */
 
 import {combineReducers} from 'redux'
-
+import {ControllerMode} from '../state'
 // import {addUnit} from '../actions'
  import {Nation} from '../config'
 
@@ -53,6 +53,15 @@ const controller = (state = {}, action) => {
         case 'SELECT_MY_NATION':
             return Object.assign({}, state, {
                 selectedNodeKey: null
+            });
+        case 'TO_MOVE_UNIT_MODE':
+            return Object.assign({}, state, {
+                mode: ControllerMode.MoveUnit
+            });
+        case 'MOVE_UNIT':
+            return Object.assign({}, state, {
+                selectedNodeKey: null,
+                mode: ControllerMode.Normal
             });
         default:
             return state;

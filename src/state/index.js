@@ -3,6 +3,11 @@
  */
 import {Nation} from '../config'
 
+export const ControllerMode = {
+    Normal: 'Normal',
+    MoveUnit: 'MoveUnit'
+}
+
 export const initialState = {
     nation: Nation.England,
     game: {
@@ -14,14 +19,15 @@ export const initialState = {
 
     },
     controller: {
-        selectedNodeKey: null
+        selectedNodeKey: null,
+        mode: ControllerMode.Normal
     }
 };
 
 
 export const getNodeUnit = (units, nodeKey) => {
     let filtered = units.filter((unit) => {
-       return unit.nodeKey === nodeKey;
+        return unit.nodeKey === nodeKey;
     });
     if (filtered.length === 0) {
         return null;
