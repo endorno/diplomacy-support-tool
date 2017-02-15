@@ -33,7 +33,6 @@ const nationReducer = (state = Nation.England, action) => {
 
 
 export const gameReducer = (state = {}, action) => {
-    console.log(action);
     switch (action.type) {
         case 'SET_INITIAL_STATE':
             return Object.assign({}, action.value);

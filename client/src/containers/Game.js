@@ -14,6 +14,7 @@ class Game extends React.Component {
             <Field
                 selectedNodeKey={this.props.selectedNodeKey}
                 units={this.props.units}
+                supplies={this.props.supplies}
                 nodeClick={this.props.nodeClick}>
 
             </Field>
@@ -22,9 +23,9 @@ class Game extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('change mode?:', state.constructor.mode)
     return {
         units: state.game.units,
+        supplies: state.game.supplies,
         selectedNodeKey: state.controller.selectedNodeKey,
         mode: state.controller.mode
     };

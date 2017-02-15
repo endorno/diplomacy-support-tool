@@ -12,7 +12,11 @@ var initialGameState = {
         {type: 'Army', nation: Nation.England, nodeKey: 'Lon'},
         {type: 'Navy', nation: Nation.England, nodeKey: 'Wal'},
         {type: 'Army', nation: Nation.France, nodeKey: 'Bre'},
-    ]
+    ],
+    supplies: {
+        Lon: Nation.England,
+        Bre: Nation.France,
+    }
 };
 
 const gameReducerOnServer = (state = {}, action) => {

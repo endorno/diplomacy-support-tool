@@ -11,13 +11,15 @@ class Node extends React.Component {
         let node = this.props.node;
         var supply = null;
         if (node.isSupply) {
+            let owner = this.props.supplyOwner;
+            let color = owner != null ? owner.color : 'white';
             supply = <Star key={node.name + '-source'}
                            x={node.pos.x + 10}
                            y={node.pos.y - 10}
                            numPoints={5}
                            innerRadius={5}
                            outerRadius={10}
-                           stroke={'black'} fill={'yellow'}
+                           stroke={'black'} fill={color}
             />
         }
         return (
@@ -52,7 +54,9 @@ export default class Field extends React.Component {
         let nodes = Object.keys(Map.nodes).map((key) => {
             let node = Map.nodes[key];
             let isSelected = key === this.props.selectedNodeKey;
-            return <Node key={node.name} node={node}
+            let supplyOwner = this.props.supplies[key];
+
+            return <Node key={node.name} node={node} supplyOwner={supplyOwner}
                          isSelected={isSelected}
                          onClick={() => {
                              this.props.nodeClick(key)
