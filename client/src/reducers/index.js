@@ -9,7 +9,7 @@ import {ControllerMode} from '../state'
 
 
 
-const moveUnits = (units, fromNodeKey, toNodeKey) => {
+export const moveUnits = (units, fromNodeKey, toNodeKey) => {
     return units.map((unit) => {
         if (fromNodeKey === unit.nodeKey) {
             return Object.assign({}, unit, {
@@ -22,7 +22,7 @@ const moveUnits = (units, fromNodeKey, toNodeKey) => {
     });
 };
 
-const nation = (state = Nation.England, action) => {
+const nationReducer = (state = Nation.England, action) => {
     switch (action.type) {
         case 'SELECT_MY_NATION':
             return action.nation;
@@ -32,18 +32,23 @@ const nation = (state = Nation.England, action) => {
 }
 
 
-const game = (state = {}, action) => {
+export const gameReducer = (state = {}, action) => {
+    console.log(action);
     switch (action.type) {
+        case 'SET_INITIAL_STATE':
+            return Object.assign({}, action.value);
+
         case 'MOVE_UNIT':
             return Object.assign({}, state, {
                 units: moveUnits(state.units, action.fromNodeKey, action.toNodeKey)
             });
+
         default:
             return state;
     }
 };
 
-const controller = (state = {}, action) => {
+const controllerReducer = (state = {}, action) => {
     switch (action.type) {
         case 'SELECT_NODE':
             console.log('select node:' + action.nodeKey);
@@ -69,9 +74,9 @@ const controller = (state = {}, action) => {
 };
 
 const appReducer = combineReducers({
-    nation,
-    game,
-    controller
+    nation: nationReducer,
+    game: gameReducer,
+    controller: controllerReducer
 });
 
 export default appReducer;

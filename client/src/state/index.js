@@ -12,11 +12,11 @@ export const initialState = {
     nation: Nation.England,
     game: {
         units: [
+            //on server
             {type: 'Army', nation: Nation.England, nodeKey: 'Lon'},
             {type: 'Navy', nation: Nation.England, nodeKey: 'Wal'},
             {type: 'Army', nation: Nation.France, nodeKey: 'Bre'},
         ],
-
     },
     controller: {
         selectedNodeKey: null,

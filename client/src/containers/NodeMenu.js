@@ -91,7 +91,7 @@ const mapStateToProos = (state) => {
 
     let unit = getNodeUnit(state.game.units, nodeKey)
 
-    let hasMyUnit = unit != null && unit.nation === state.nation;
+    let hasMyUnit = unit != null && unit.nation.name === state.nation.name;
 
     let isSupply = node.isSupply;
     let isMySupply = false; // TODO manage supply's owner

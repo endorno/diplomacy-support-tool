@@ -1,14 +1,14 @@
 // game
 export const addUnit = (nation, unit_type, node) => {
     return {
-        type: 'ADD_UNIT',
+        type: 'server/ADD_UNIT',
         unit_type, node,
     }
 }
 
 export const moveUnit = (fromNodeKey, toNodeKey) => {
     return {
-        type: 'MOVE_UNIT',
+        type: 'server/MOVE_UNIT',
         fromNodeKey, toNodeKey,
     }
 }
