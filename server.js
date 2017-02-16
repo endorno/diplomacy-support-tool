@@ -1,7 +1,7 @@
 /**
  * Created by teppei.fujisawa on 2017/02/14.
  */
-import {Nation} from './client/src/config'
+import {Nation, UnitType} from './client/src/config'
 import {gameReducer} from './client/src/reducers'
 
 var server = require('http').createServer();
@@ -9,9 +9,9 @@ var io = require('socket.io')(server);
 
 var initialGameState = {
     units: [
-        {type: 'Army', nation: Nation.England, nodeKey: 'Lon'},
-        {type: 'Navy', nation: Nation.England, nodeKey: 'Wal'},
-        {type: 'Army', nation: Nation.France, nodeKey: 'Bre'},
+        {type: UnitType.Army, nation: Nation.England, nodeKey: 'Lon'},
+        {type: UnitType.Navy, nation: Nation.England, nodeKey: 'Wal'},
+        {type: UnitType.Army, nation: Nation.France, nodeKey: 'Bre'},
     ],
     supplies: {
         Lon: Nation.England,

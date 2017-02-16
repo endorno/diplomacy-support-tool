@@ -1,10 +1,17 @@
 // game
-export const addUnit = (nation, unit_type, node) => {
+export const createUnit = (nodeKey, nation, unitType) => {
     return {
-        type: 'server/ADD_UNIT',
-        unit_type, node,
+        type: 'server/CREATE_UNIT',
+        nodeKey, nation, unitType,
     }
-}
+};
+
+export const destroyUnit = (nodeKey) => {
+    return {
+        type: 'server/DESTROY_UNIT',
+        nodeKey
+    }
+};
 
 export const moveUnit = (fromNodeKey, toNodeKey) => {
     return {

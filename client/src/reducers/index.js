@@ -5,11 +5,10 @@
 import {combineReducers} from 'redux'
 import {ControllerMode} from '../state'
 // import {addUnit} from '../actions'
- import {Nation} from '../config'
+import {Nation} from '../config'
 
 
-
-export const moveUnits = (units, fromNodeKey, toNodeKey) => {
+const moveUnits = (units, fromNodeKey, toNodeKey) => {
     return units.map((unit) => {
         if (fromNodeKey === unit.nodeKey) {
             return Object.assign({}, unit, {
@@ -41,7 +40,23 @@ export const gameReducer = (state = {}, action) => {
             return Object.assign({}, state, {
                 units: moveUnits(state.units, action.fromNodeKey, action.toNodeKey)
             });
+        case 'CREATE_UNIT':
+            let new_unit = {
+                type: action.unitType,
+                nation: action.nation,
+                nodeKey: action.nodeKey
+            };
 
+            let ret= Object.assign({}, state, {
+                units: [...state.units, new_unit]
+            });
+            return ret;
+        case 'DESTROY_UNIT':
+            return Object.assign({}, state, {
+                units: state.units.filter((unit) => {
+                    return unit.nodeKey != action.nodeKey;
+                })
+            });
         default:
             return state;
     }
@@ -66,6 +81,14 @@ const controllerReducer = (state = {}, action) => {
             return Object.assign({}, state, {
                 selectedNodeKey: null,
                 mode: ControllerMode.Normal
+            });
+        case 'CREATE_UNIT':
+            return Object.assign({}, state, {
+                selectedNodeKey: null,
+            });
+        case 'DESTROY_UNIT':
+            return Object.assign({}, state, {
+                selectedNodeKey: null,
             });
         default:
             return state;

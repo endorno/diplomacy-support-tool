@@ -18,6 +18,8 @@ export const initialState = {
             // {type: 'Army', nation: Nation.France, nodeKey: 'Bre'},
         ],
         supplies: {
+            // Lon: Nation.England,
+            // Bre: Nation.France,
         }
     },
     controller: {

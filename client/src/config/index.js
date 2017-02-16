@@ -19,6 +19,12 @@ const GeoType = {
     Land: 'Land',
     Port: 'Port'
 };
+
+const UnitType = {
+    Army: 'Army',
+    Navy: 'Navy'
+};
+
 let diffX = -100
 let diffY = -400
 
@@ -57,4 +63,4 @@ const Map = {
     ],
 };
 
-export {Nation, GeoType, Map};
+export {Nation, GeoType, Map, UnitType};
