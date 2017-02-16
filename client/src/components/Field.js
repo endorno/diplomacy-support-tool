@@ -5,6 +5,7 @@ import {Map} from '../config'
 import React from 'react'
 import Konva from 'konva';
 import {Rect, Group, Circle, Line, Star} from 'react-konva';
+import {UnitType} from '../config'
 
 class Node extends React.Component {
     render() {
@@ -22,6 +23,7 @@ class Node extends React.Component {
                            stroke={'black'} fill={color}
             />
         }
+
         return (
             <Group key={node.name + '-group'}>
                 <Circle key={node.name}
@@ -30,11 +32,32 @@ class Node extends React.Component {
                         width={30} height={30}
                         stroke={'black'} fill={this.props.isSelected ? 'gray' : 'white'}
                         onClick={this.props.onClick}
+                        onTap={this.props.onClick}
                 />
                 {supply}
             </Group>
         )
             ;
+    }
+}
+
+class Unit extends React.Component {
+    render() {
+        let unit = this.props.unit;
+        let n = this.props.node;
+        if (unit.type === UnitType.Navy) {
+            return <Rect
+                x={n.pos.x}
+                y={n.pos.y}
+                width={10} height={10} fill={unit.nation.color}
+            />
+        } else {
+            return <Circle
+                x={n.pos.x}
+                y={n.pos.y}
+                width={10} height={10} fill={unit.nation.color}
+            />
+        }
     }
 }
 
@@ -74,9 +97,10 @@ export default class Field extends React.Component {
 
         let unit_elements = this.props.units.map((unit, i) => {
             let n = Map.nodes[unit.nodeKey];
-            return <Rect
-                key={i + n.name + '-force'} x={n.pos.x} y={n.pos.y}
-                width={10} height={10} fill={unit.nation.color}
+            return <Unit
+                key={i + n.name + '-force'}
+                node={n}
+                unit={unit}
             />
         });
 

@@ -95,7 +95,7 @@ const mapStateToProos = (state) => {
 
         let isSupply = node.isSupply;
         let isMySupply = state.game.supplies[nodeKey] != null &&
-                state.game.supplies[nodeKey].name == state.nation.name;
+                state.game.supplies[nodeKey].name === state.nation.name;
         ret = {hasMyUnit, isSupply, isMySupply};
     }
 

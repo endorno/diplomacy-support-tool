@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="04aba3bf-f43b-4553-8673-97e3e25406cd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/actions/index.js" afterPath="$PROJECT_DIR$/client/src/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/config/index.js" afterPath="$PROJECT_DIR$/client/src/config/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/Field.js" afterPath="$PROJECT_DIR$/client/src/components/Field.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/containers/NodeMenu.js" afterPath="$PROJECT_DIR$/client/src/containers/NodeMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/reducers/index.js" afterPath="$PROJECT_DIR$/client/src/reducers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/state/index.js" afterPath="$PROJECT_DIR$/client/src/state/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,13 +48,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Field.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Field.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/src/components/Field.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-642">
-                  <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+                <state relative-caret-position="456">
+                  <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#53#82#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -86,11 +83,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="NodeMenu.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="NodeMenu.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/containers/NodeMenu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="97" column="50" lean-forward="false" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+                <state relative-caret-position="654">
+                  <caret line="97" column="51" lean-forward="false" selection-start-line="97" selection-start-column="51" selection-end-line="97" selection-end-column="51" />
                   <folding>
                     <element signature="e#54#139#0" expanded="true" />
                   </folding>
@@ -115,21 +112,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/src/config/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1170">
-                  <caret line="65" column="40" lean-forward="true" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
+                <state relative-caret-position="218">
+                  <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/actions/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+                <state relative-caret-position="252">
+                  <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -187,13 +184,13 @@
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/client/src/index.js" />
         <option value="$PROJECT_DIR$/client/src/containers/Game.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Field.js" />
         <option value="$PROJECT_DIR$/client/src/config/index.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/src/state/index.js" />
         <option value="$PROJECT_DIR$/client/src/actions/index.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/client/src/containers/NodeMenu.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Field.js" />
       </list>
     </option>
   </component>
@@ -503,12 +500,12 @@
       <workItem from="1486995390572" duration="1200000" />
       <workItem from="1487071959073" duration="664000" />
       <workItem from="1487081589599" duration="6416000" />
-      <workItem from="1487200891093" duration="4550000" />
+      <workItem from="1487200891093" duration="5616000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46718000" />
+    <option name="totallyTimeSpent" value="47784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1276" height="777" extended-state="6" />
@@ -644,14 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="65" column="40" lean-forward="true" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/state/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -672,21 +661,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Field.js">
+    <entry file="file://$PROJECT_DIR$/client/src/actions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-642">
-          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="252">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/index.js">
+    <entry file="file://$PROJECT_DIR$/client/src/config/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+        <state relative-caret-position="218">
+          <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/containers/NodeMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="97" column="51" lean-forward="false" selection-start-line="97" selection-start-column="51" selection-end-line="97" selection-end-column="51" />
+          <folding>
+            <element signature="e#54#139#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -708,12 +705,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/containers/NodeMenu.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/Field.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="97" column="50" lean-forward="false" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+        <state relative-caret-position="456">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
-            <element signature="e#54#139#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#53#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
