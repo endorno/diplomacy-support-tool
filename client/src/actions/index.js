@@ -18,8 +18,14 @@ export const moveUnit = (fromNodeKey, toNodeKey) => {
         type: 'server/MOVE_UNIT',
         fromNodeKey, toNodeKey,
     }
-}
+};
 
+export const updateSupplyOwner = (nodeKey, nation) => {
+    return {
+        type: 'server/UPDATE_SUPPLY_OWNER',
+        nodeKey, nation
+    };
+};
 
 // controller
 export const selectNode = (nodeKey) => {

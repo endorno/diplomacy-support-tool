@@ -54,8 +54,17 @@ export const gameReducer = (state = {}, action) => {
         case 'DESTROY_UNIT':
             return Object.assign({}, state, {
                 units: state.units.filter((unit) => {
-                    return unit.nodeKey != action.nodeKey;
+                    return unit.nodeKey !== action.nodeKey;
                 })
+            });
+        case 'UPDATE_SUPPLY_OWNER':
+
+            let supplies = Object.assign({}, state.supplies, {
+                [action.nodeKey]: action.nation
+            });
+            console.log(supplies, action);
+            return Object.assign({}, state, {
+                supplies: supplies
             });
         default:
             return state;

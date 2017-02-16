@@ -2,7 +2,7 @@
  * Created by teppei.fujisawa on 2017/02/13.
  */
 
-import {toMoveUnitMode, createUnit, destroyUnit} from '../actions'
+import {toMoveUnitMode, createUnit, destroyUnit, updateSupplyOwner} from '../actions'
 import {connect} from 'react-redux'
 import React from 'react'
 import {getNodeUnit} from '../state'
@@ -25,6 +25,7 @@ class NodeMenu extends React.Component {
             buttons.push(
                 <a href="#"
                    onClick={ e => {
+                       e.preventDefault();
                        this.props.onCreateUnitButtonClick(UnitType.Army);
                    }}
                 >Create Army</a>
@@ -32,6 +33,7 @@ class NodeMenu extends React.Component {
             buttons.push(
                 <a href="#"
                    onClick={ e => {
+                       e.preventDefault();
                        this.props.onCreateUnitButtonClick(UnitType.Navy);
                    }}
                 >Create Navy</a>
@@ -42,6 +44,7 @@ class NodeMenu extends React.Component {
             buttons.push(
                 <a href="#"
                    onClick={ e => {
+                       e.preventDefault();
                        this.props.onDestroyUnitButtonClick()
                    }}
                 >Remove Unit</a>
@@ -52,7 +55,7 @@ class NodeMenu extends React.Component {
                 <a href="#"
                    onClick={ e => {
                        e.preventDefault();
-                       alert('not implemented');
+                        this.props.onUpdateSupplyOwnerButtonClick()
                    }}
                 >Update Supply Owner</a>
             );
@@ -111,6 +114,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         _destroyUnit: (nodeKey) => {
             dispatch(destroyUnit(nodeKey))
+        },
+        _updateSupplyOwner: (nodeKey, nation) => {
+            dispatch(updateSupplyOwner(nodeKey, nation));
         }
     }
 }
@@ -127,7 +133,16 @@ const mergeProps = (stateProps, dispatchProps) => {
             if (stateProps._selectedNodeKey != null) {
                 dispatchProps._destroyUnit(stateProps._selectedNodeKey);
             }
+        },
+        onUpdateSupplyOwnerButtonClick: () => {
+            if (stateProps._selectedNodeKey != null) {
+                dispatchProps._updateSupplyOwner(
+                    stateProps._selectedNodeKey,
+                    stateProps._nation
+                );
+            }
         }
+
     })
 }
 
