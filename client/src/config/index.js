@@ -11,7 +11,12 @@ class NationDefinition {
 
 const Nation = {
     England: new NationDefinition('England', '#6371BC'),
-    France: new NationDefinition('France', '#4197A3')
+    Russia: new NationDefinition('Russia', '#C1C1C1'),
+    France: new NationDefinition('France', '#4197A3'),
+    Germany: new NationDefinition('Germany', '#626262'),
+    Austria: new NationDefinition('Austria', '#CB4347'),
+    Italy: new NationDefinition('Italy', '#3B9432'),
+    Turky: new NationDefinition('Turky', '#B19C37')
 };
 
 const GeoType = {

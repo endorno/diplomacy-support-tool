@@ -7,6 +7,7 @@ import {connect} from 'react-redux'
 import React from 'react'
 import {getNodeUnit} from '../state'
 import {Map, UnitType} from '../config'
+import './NodeMenu.css'
 
 class NodeMenu extends React.Component {
     render() {
@@ -62,7 +63,7 @@ class NodeMenu extends React.Component {
         }
 
         return (
-            <p>
+            <div id="NodeMenu">
                 NodeMenu:
                 {buttons.map((button, i) => {
                     return (
@@ -72,7 +73,7 @@ class NodeMenu extends React.Component {
                         </span>
                     )
                 })}
-            </p>
+            </div>
         )
     }
 }

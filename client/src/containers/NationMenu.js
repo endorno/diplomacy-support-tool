@@ -6,6 +6,7 @@ import {selectMyNation} from '../actions'
 import {connect} from 'react-redux'
 import React from 'react'
 import {Nation} from '../config'
+import './NationMenu.css'
 
 class NationMenu extends React.Component {
     render() {
@@ -17,34 +18,21 @@ class NationMenu extends React.Component {
             }
             let nation = Nation[nationKey];
 
-            if (nation !== this.props.nation) {
-                buttons.push(
-                    <button href="#"
-                       onClick={ e => {
-                           e.preventDefault();
-                           this.props.onNationClick(nation)
-                       }}
-                    >{nation.name}</button>
-                );
-            } else {
-                buttons.push(
-                    <span>{nation.name}</span>
-                );
-            }
+            buttons.push(
+                <label className="NationMenuButton" key={buttons.length}>
+                    <input key={buttons.length} type="radio" name="nation" value={nationKey} onChange={ e => {
+                        console.log('on click nation:', nation);
+                        this.props.onNationClick(nation)
+                    }} checked={nation.name === this.props.nation.name}/>
+                    <img src={"/images/flags/" + nation.name + ".gif"} />
+                </label>
+            );
         }
 
         return (
-            <p>
-                Current nation:
-                {buttons.map((button, i) => {
-                    return (
-                        <span key={i}>
-                            {button}
-                            {', '}
-                        </span>
-                    )
-                })}
-            </p>
+            <div id="NationMenu">
+                {buttons}
+            </div>
         )
     }
 }

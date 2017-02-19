@@ -1,3 +1,4 @@
+import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {createStore, applyMiddleware} from 'redux'
@@ -37,9 +38,6 @@ class MyImage extends React.Component {
 
 class App extends React.Component {
     render() {
-        let absoluteStyle = {
-            position: 'absolute'
-        };
         var width = window.innerWidth;
         var height = window.innerHeight;
         return (

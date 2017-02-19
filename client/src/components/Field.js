@@ -56,8 +56,12 @@ class Unit extends React.Component {
                 scale={ {x: 0.08, y: 0.08} }
                 data={SHIP_PATH}
                 fill={unit.nation.color}
-                stroke={"black"}
-                strokeWidth={30}
+                stroke={"white"}
+                strokeWidth={10}
+                shadowColor={'black'}
+                shadowOpacity={0.5}
+                shadowOffsetX={30}
+                shadowOffsetY={30}
                 listening={false}
                 />
             {/*return <Rect*/}
@@ -73,8 +77,12 @@ class Unit extends React.Component {
                 scale={ {x: 0.04, y: 0.04} }
                 data={TANK_PATH}
                 fill={unit.nation.color}
-                stroke={"black"}
-                strokeWidth={60}
+                stroke={"white"}
+                strokeWidth={10}
+                shadowColor={'black'}
+                shadowOpacity={0.5}
+                shadowOffsetX={30}
+                shadowOffsetY={30}
                 listening={false}
             />
         }
