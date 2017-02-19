@@ -12,67 +12,51 @@ import './NodeMenu.css'
 class NodeMenu extends React.Component {
     render() {
         let buttons = [];
-        if (this.props.hasMyUnit) {
-            buttons.push(
-                <a href="#"
-                   onClick={ e => {
-                       e.preventDefault();
-                       this.props.onMoveUnitButtonClick();
-                   }}
-                >Move Unit</a>
-            )
-        }
-        if (this.props.isMySupply && !this.props.hasMyUnit) {
-            buttons.push(
-                <a href="#"
-                   onClick={ e => {
-                       e.preventDefault();
-                       this.props.onCreateUnitButtonClick(UnitType.Army);
-                   }}
-                >Create Army</a>
-            );
-            buttons.push(
-                <a href="#"
-                   onClick={ e => {
-                       e.preventDefault();
-                       this.props.onCreateUnitButtonClick(UnitType.Navy);
-                   }}
-                >Create Navy</a>
-            );
+
+        function createButton(i, callback, title) {
+            return <a key={i} className="button" href="#" onClick={callback}> {title} </a>
         }
 
         if (this.props.hasMyUnit) {
             buttons.push(
-                <a href="#"
-                   onClick={ e => {
-                       e.preventDefault();
-                       this.props.onDestroyUnitButtonClick()
-                   }}
-                >Remove Unit</a>
+                createButton(buttons.length, () => {
+                    this.props.onMoveUnitButtonClick();
+                }, 'move unit')
+            );
+        }
+        if (this.props.isMySupply && !this.props.hasMyUnit) {
+            buttons.push(
+                createButton(buttons.length, () => {
+                    this.props.onCreateUnitButtonClick(UnitType.Army);
+                }, 'create army')
+            );
+
+            buttons.push(
+                createButton(buttons.length, () => {
+                    this.props.onCreateUnitButtonClick(UnitType.Navy);
+                }, 'create navy')
+            );
+        }
+
+        if (this.props.hasMyUnit) {
+
+            buttons.push(
+                createButton(buttons.length, () => {
+                    this.props.onDestroyUnitButtonClick()
+                }, 'destroy')
             );
         }
         if (this.props.isSupply && !this.props.isMySupply) {
             buttons.push(
-                <a href="#"
-                   onClick={ e => {
-                       e.preventDefault();
-                        this.props.onUpdateSupplyOwnerButtonClick()
-                   }}
-                >Update Supply Owner</a>
+                createButton(buttons.length, () => {
+                    this.props.onUpdateSupplyOwnerButtonClick()
+                }, 'update owner')
             );
         }
 
         return (
             <div id="NodeMenu">
-                NodeMenu:
-                {buttons.map((button, i) => {
-                    return (
-                        <span key={i}>
-                            {button}
-                            {', '}
-                        </span>
-                    )
-                })}
+                {buttons}
             </div>
         )
     }
@@ -97,7 +81,7 @@ const mapStateToProos = (state) => {
 
         let isSupply = node.isSupply;
         let isMySupply = state.game.supplies[nodeKey] != null &&
-                state.game.supplies[nodeKey].name === state.nation.name;
+            state.game.supplies[nodeKey].name === state.nation.name;
         ret = {hasMyUnit, isSupply, isMySupply};
     }
 
