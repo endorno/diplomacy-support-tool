@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {createStore, applyMiddleware} from 'redux'
 import {initialState} from './state'
-import {Layer, Stage} from 'react-konva'
+import {Layer, Stage, Image} from 'react-konva'
 import appReducer from './reducers'
 import NationMenu from './containers/NationMenu'
 import Game from './containers/Game'
@@ -10,14 +10,46 @@ import NodeMenu from './containers/NodeMenu'
 import {Provider} from 'react-redux'
 
 
-class App extends React.Component {
+// try drag& drop rectangle
+class MyImage extends React.Component {
+    state = {
+        image: null
+    }
+
+    componentDidMount() {
+        const image = new window.Image();
+        image.src = '/images/map1_5.png';
+        image.onload = () => {
+            this.setState({
+                image: image
+            });
+        }
+    }
+
     render() {
         return (
+            <Image
+                image={this.state.image}
+            />
+        );
+    }
+}
+
+class App extends React.Component {
+    render() {
+        let absoluteStyle = {
+            position: 'absolute'
+        };
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        return (
+
             <div>
                 <NationMenu/>
-                <NodeMenu />
-                <Stage width={700} height={700}>
+                <NodeMenu/>
+                <Stage width={width} height={height} draggable={true}>
                     <Layer>
+                        <MyImage />
                         <Game />
                     </Layer>
                 </Stage>
@@ -28,7 +60,8 @@ class App extends React.Component {
 
 import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
-let socket = io('http://localhost:3012');
+// let socket = io('http://10.0.1.7:3012');
+let socket = io('/');
 let socketIoMiddleWare = createSocketIoMiddleware(socket, "server/");
 
 

@@ -60,6 +60,7 @@ class NodeMenu extends React.Component {
                 >Update Supply Owner</a>
             );
         }
+
         return (
             <p>
                 NodeMenu:

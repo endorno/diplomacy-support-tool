@@ -19,12 +19,12 @@ class NationMenu extends React.Component {
 
             if (nation !== this.props.nation) {
                 buttons.push(
-                    <a href="#"
+                    <button href="#"
                        onClick={ e => {
                            e.preventDefault();
                            this.props.onNationClick(nation)
                        }}
-                    >{nation.name}</a>
+                    >{nation.name}</button>
                 );
             } else {
                 buttons.push(
@@ -32,6 +32,7 @@ class NationMenu extends React.Component {
                 );
             }
         }
+
         return (
             <p>
                 Current nation:
