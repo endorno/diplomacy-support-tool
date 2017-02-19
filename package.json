@@ -1,5 +1,5 @@
 {
-  "name": "hello-react-server",
+  "name": "diplomacy-server",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
