@@ -8,7 +8,20 @@ import {ControllerMode} from '../state'
 import {Nation} from '../config'
 
 
+const unitExistsAt = (units, toNodeKey) => {
+    let destinationUnits = units.filter((unit) => {
+        return unit.nodeKey === toNodeKey;
+    });
+    return destinationUnits.length > 0;
+}
+
 const moveUnits = (units, fromNodeKey, toNodeKey) => {
+    //check destination
+
+    if (unitExistsAt(units, toNodeKey)) {
+        return units;
+    }
+
     return units.map((unit) => {
         if (fromNodeKey === unit.nodeKey) {
             return Object.assign({}, unit, {
@@ -41,6 +54,9 @@ export const gameReducer = (state = {}, action) => {
                 units: moveUnits(state.units, action.fromNodeKey, action.toNodeKey)
             });
         case 'CREATE_UNIT':
+            if (unitExistsAt(state.units, action.nodeKey)) {
+                return state;
+            }
             let new_unit = {
                 type: action.unitType,
                 nation: action.nation,
@@ -62,7 +78,6 @@ export const gameReducer = (state = {}, action) => {
             let supplies = Object.assign({}, state.supplies, {
                 [action.nodeKey]: action.nation
             });
-            console.log(supplies, action);
             return Object.assign({}, state, {
                 supplies: supplies
             });
