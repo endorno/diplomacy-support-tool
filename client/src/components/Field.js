@@ -85,6 +85,7 @@ class Node extends React.Component {
                         y={node.pos.y}
                         width={30} height={30}
                         stroke={'black'} fill={this.props.isSelected ? 'gray' : 'white'}
+                        opacity={0.5}
                 />
                 {supply}
             </Group>
