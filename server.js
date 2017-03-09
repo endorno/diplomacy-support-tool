@@ -9,14 +9,66 @@ var io = require('socket.io')(server);
 
 var initialGameState = {
     units: [
-        {type: UnitType.Army, nation: Nation.England, nodeKey: 'Lon'},
-        {type: UnitType.Navy, nation: Nation.England, nodeKey: 'Wal'},
-        {type: UnitType.Army, nation: Nation.France, nodeKey: 'Bre'},
+        // {type: UnitType.Army, nation: Nation.England, nodeKey: 'Lon'},
+        // {type: UnitType.Navy, nation: Nation.England, nodeKey: 'Wal'},
+        // {type: UnitType.Army, nation: Nation.France, nodeKey: 'Bre'},
+        {nation: Nation.England, nodeKey: "Lon", type: UnitType.Navy,},
+        {nation: Nation.England, nodeKey: "Lvp", type: UnitType.Army,},
+        {nation: Nation.England, nodeKey: "Edi", type: UnitType.Navy,},
+        {nation: Nation.France, nodeKey: "Par", type: UnitType.Army,},
+        {nation: Nation.France, nodeKey: "Mar", type: UnitType.Army,},
+        {nation: Nation.France, nodeKey: "Bre", type: UnitType.Navy,},
+        {nation: Nation.Germany, nodeKey: "Ber", type: UnitType.Army,},
+        {nation: Nation.Germany, nodeKey: "Mun", type: UnitType.Army,},
+        {nation: Nation.Germany, nodeKey: "Kie", type: UnitType.Navy,},
+        {nation: Nation.Italy, nodeKey: "Rom", type: UnitType.Army,},
+        {nation: Nation.Italy, nodeKey: "Ven", type: UnitType.Army,},
+        {nation: Nation.Italy, nodeKey: "Nap", type: UnitType.Navy,},
+        {nation: Nation.Austria, nodeKey: "Vie", type: UnitType.Army,},
+        {nation: Nation.Austria, nodeKey: "Bud", type: UnitType.Army,},
+        {nation: Nation.Austria, nodeKey: "Tri", type: UnitType.Navy,},
+        {nation: Nation.Russia, nodeKey: "StPS", type: UnitType.Navy,},
+        {nation: Nation.Russia, nodeKey: "Mos", type: UnitType.Army,},
+        {nation: Nation.Russia, nodeKey: "War", type: UnitType.Army,},
+        {nation: Nation.Russia, nodeKey: "Sev", type: UnitType.Navy,},
+        {nation: Nation.Turky, nodeKey: "Con", type: UnitType.Army,},
+        {nation: Nation.Turky, nodeKey: "Ank", type: UnitType.Navy,},
+        {nation: Nation.Turky, nodeKey: "Smy", type: UnitType.Army,},
+
+
     ],
     supplies: {
         Lon: Nation.England,
+        Lvp: Nation.England,
+        Edi: Nation.England,
+
+        Par: Nation.France,
+        Mar: Nation.France,
         Bre: Nation.France,
+
+        Ber: Nation.Germany,
+        Mun: Nation.Germany,
+        Kie: Nation.Germany,
+
+        Rom: Nation.Italy,
+        Ven: Nation.Italy,
+        Nap: Nation.Italy,
+
+        Vie: Nation.Austria,
+        Bud: Nation.Austria,
+        Tri: Nation.Austria,
+
+        StP: Nation.Russia,
+        Mos: Nation.Russia,
+        War: Nation.Russia,
+        Sev: Nation.Russia,
+
+        Con: Nation.Turky,
+        Ank: Nation.Turky,
+        Smy: Nation.Turky,
     }
+
+
 };
 
 const gameReducerOnServer = (state = {}, action) => {

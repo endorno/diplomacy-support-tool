@@ -97,6 +97,8 @@ const Map = {
 
         // Russia
         StP: new GeoNode('Saint Petersburg', {x: 1161, y: 418}, GeoType.Port, true),
+        StPS: new GeoNode('Saint Petersburg South', {x: 1052, y: 449}, GeoType.Port, false),
+        StPN: new GeoNode('Saint Petersburg North', {x: 1227, y: 168}, GeoType.Port, false),
         Mos: new GeoNode('Moscow', {x: 1234, y: 613}, GeoType.Land, true),
         War: new GeoNode('Marsaw', {x: 989, y: 705}, GeoType.Land, true),
         Sev: new GeoNode('Stevastopol', {x: 1297, y: 892}, GeoType.Port, true),
