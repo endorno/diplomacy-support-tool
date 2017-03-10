@@ -83,9 +83,13 @@ class Node extends React.Component {
                 <Circle key={node.name}
                         x={node.pos.x}
                         y={node.pos.y}
-                        width={30} height={30}
+                        width={10} height={10}
                         stroke={'black'} fill={this.props.isSelected ? 'gray' : 'white'}
-                        opacity={0.5}
+                />
+                <Circle key={node.name + '-hidden'}
+                        x={node.pos.x}
+                        y={node.pos.y}
+                        width={50} height={50}
                 />
                 {supply}
             </Group>
@@ -103,8 +107,8 @@ class Unit extends React.Component {
                 x={n.pos.x - 50}
                 y={n.pos.y - 30}
                 scale={ {x: 0.08, y: 0.08} }
-                data={SHIP_PATH}
                 fill={unit.nation.color}
+                data={SHIP_PATH}
                 stroke={"white"}
                 strokeWidth={10}
                 shadowColor={'black'}
@@ -118,8 +122,8 @@ class Unit extends React.Component {
                 x={n.pos.x - 10}
                 y={n.pos.y - 10}
                 scale={ {x: 0.04, y: 0.04} }
-                data={TANK_PATH}
                 fill={unit.nation.color}
+                data={TANK_PATH}
                 stroke={"white"}
                 strokeWidth={10}
                 shadowColor={'black'}
