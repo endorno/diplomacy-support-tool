@@ -103,10 +103,11 @@ class Unit extends React.Component {
         let unit = this.props.unit;
         let n = this.props.node;
         if (unit.type === UnitType.Navy) {
+            // Ship
             return <Path
-                x={n.pos.x - 50}
-                y={n.pos.y - 30}
-                scale={ {x: 0.08, y: 0.08} }
+                x={n.pos.x - 70}
+                y={n.pos.y - 20}
+                scale={ {x: 0.07, y: 0.07} }
                 fill={unit.nation.color}
                 data={SHIP_PATH}
                 stroke={"white"}
@@ -118,10 +119,11 @@ class Unit extends React.Component {
                 listening={false}
             />
         } else {
+            //Tank
             return <Path
-                x={n.pos.x - 10}
+                x={n.pos.x - 30}
                 y={n.pos.y - 10}
-                scale={ {x: 0.04, y: 0.04} }
+                scale={ {x: 0.03, y: 0.03} }
                 fill={unit.nation.color}
                 data={TANK_PATH}
                 stroke={"white"}
