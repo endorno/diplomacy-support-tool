@@ -151,6 +151,7 @@ class App extends React.Component {
                 <NationMenu/>
                 <NodeMenu/>
                 <MyStage width={width} height={height}
+                         x={-300} y={-300}
                          draggable={false}
                 >
                     <Layer>
