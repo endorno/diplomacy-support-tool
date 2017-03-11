@@ -10,6 +10,7 @@ import Game from './containers/Game'
 import NodeMenu from './containers/NodeMenu'
 import CommonMenu from './containers/CommonMenu'
 import {Provider} from 'react-redux'
+import Url from 'urljs'
 
 // try drag& drop rectangle
 class MyImage extends React.Component {
@@ -187,7 +188,11 @@ let socketIoMiddleWare = createSocketIoMiddleware(socket, "server/", {execute: t
 
 store = applyMiddleware(socketIoMiddleWare)(createStore)(appReducer, initialState);
 
-socket.emit('join_room', {room_id: 'global'});
+let room_id = Url.queryString('room_id');
+if (!room_id || typeof(room_id) !== 'string') {
+    room_id = 'global';
+}
+socket.emit('join_room', {room_id: room_id.replace("#", "")});
 
 ReactDOM.render(
     <Provider store={store}>
