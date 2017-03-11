@@ -24,7 +24,8 @@ export const initialState = {
     },
     controller: {
         selectedNodeKey: null,
-        mode: ControllerMode.Normal
+        mode: ControllerMode.Normal,
+        remoteSync: true,
     }
 };
 

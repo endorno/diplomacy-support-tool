@@ -49,6 +49,9 @@ export const gameReducer = (state = {}, action) => {
         case 'SET_INITIAL_STATE':
             return Object.assign({}, action.value);
 
+        case 'SET_LATEST_STATE':
+            return Object.assign({}, action.value);
+
         case 'MOVE_UNIT':
             return Object.assign({}, state, {
                 units: moveUnits(state.units, action.fromNodeKey, action.toNodeKey)
@@ -63,7 +66,7 @@ export const gameReducer = (state = {}, action) => {
                 nodeKey: action.nodeKey
             };
 
-            let ret= Object.assign({}, state, {
+            let ret = Object.assign({}, state, {
                 units: [...state.units, new_unit]
             });
             return ret;
@@ -89,7 +92,6 @@ export const gameReducer = (state = {}, action) => {
 const controllerReducer = (state = {}, action) => {
     switch (action.type) {
         case 'SELECT_NODE':
-            console.log('select node:' + action.nodeKey);
             return Object.assign({}, state, {
                 selectedNodeKey: action.nodeKey
             });
@@ -113,6 +115,10 @@ const controllerReducer = (state = {}, action) => {
         case 'DESTROY_UNIT':
             return Object.assign({}, state, {
                 selectedNodeKey: null,
+            });
+        case 'TOGGLE_REMOTE_SYNC':
+            return Object.assign({}, state, {
+                remoteSync: !state.remoteSync,
             });
         default:
             return state;

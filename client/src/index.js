@@ -8,8 +8,8 @@ import appReducer from './reducers'
 import NationMenu from './containers/NationMenu'
 import Game from './containers/Game'
 import NodeMenu from './containers/NodeMenu'
+import CommonMenu from './containers/CommonMenu'
 import {Provider} from 'react-redux'
-
 
 // try drag& drop rectangle
 class MyImage extends React.Component {
@@ -145,8 +145,8 @@ class App extends React.Component {
         var width = window.innerWidth;
         var height = window.innerHeight;
         return (
-
             <div>
+                <CommonMenu />
                 <NationMenu/>
                 <NodeMenu/>
                 <MyStage width={width} height={height}
@@ -166,10 +166,26 @@ import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
 // let socket = io('http://10.0.1.7:3012');
 let socket = io('/');
-let socketIoMiddleWare = createSocketIoMiddleware(socket, "server/");
 
+let store = null;
 
-const store = applyMiddleware(socketIoMiddleWare)(createStore)(appReducer, initialState);
+function toggableExecute(action, emit, next, dispatch) {
+    if (store.getState().controller.remoteSync) {
+        //default
+        emit('action', action);
+        next(action);
+    } else {
+        let localAction = {
+            ...action,
+            type: action.type.replace("server/", "")
+        };
+        dispatch(localAction);
+    }
+}
+
+let socketIoMiddleWare = createSocketIoMiddleware(socket, "server/", {execute: toggableExecute});
+
+store = applyMiddleware(socketIoMiddleWare)(createStore)(appReducer, initialState);
 
 socket.emit('join_room', {room_id: 'global'});
 

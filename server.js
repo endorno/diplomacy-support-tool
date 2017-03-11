@@ -93,7 +93,6 @@ io.on('connection', function (client) {
         console.log('join new user:', data.room_id);
         client.room_id = data.room_id;
         client.join(data.room_id);
-        console.log('set initial state:', rooms[room_id]);
         client.emit('action', {
             type: 'SET_INITIAL_STATE',
             value: rooms[room_id]
@@ -105,6 +104,15 @@ io.on('connection', function (client) {
             console.log('not join room');
             return;
         }
+
+        if (action.type.includes('GET_LATEST_STATE')) {
+            client.emit('action', {
+                type: 'SET_LATEST_STATE',
+                value: rooms[client.room_id]
+            });
+            return;
+        }
+
         let local_action = Object.assign({}, action, {
             type: action.type.replace("server/", "")
         });

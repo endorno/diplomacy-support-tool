@@ -25,6 +25,7 @@ class NationMenu extends React.Component {
                         this.props.onNationClick(nation)
                     }} checked={nation.name === this.props.nation.name}/>
                     <img src={"/images/flags/" + nation.name + ".gif"} alt={nationKey}/>
+                    <br/>
                 </label>
             );
         }

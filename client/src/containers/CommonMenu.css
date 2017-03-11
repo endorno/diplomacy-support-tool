@@ -1,0 +1,12 @@
+#CommonMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    /*background-color: #777777;*/
+    padding: 5px 5px 0px 5px;
+}
+
+label.remoteSyncButton {
+    width: 90px;
+}

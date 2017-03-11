@@ -49,3 +49,15 @@ export const selectMyNation = (nation) => {
         nation: nation
     }
 };
+
+export const getLatestState = () => {
+    return {
+        type:'server/GET_LATEST_STATE',
+    };
+}
+
+export const toggleRemoteSync = () => {
+    return {
+        type:'TOGGLE_REMOTE_SYNC',
+    };
+}
