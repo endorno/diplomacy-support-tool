@@ -88,6 +88,7 @@ io.on('connection', function (client) {
     client.on('join_room', (data) => {
         let room_id = data.room_id;
         if (rooms[room_id] === undefined) {
+            console.log('new room created:', room_id);
             rooms[room_id] = Object.assign({}, initialGameState);
         }
         console.log('join new user:', data.room_id);
